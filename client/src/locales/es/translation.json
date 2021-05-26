@@ -12,14 +12,14 @@
   "F1SC": {
     "helmet": "Nuevo alquiler - aTemporal & Rimbo - The new way of rent",
     "header": {
-      "title": "Registra a tu residente",
+      "title": "Registra a tu inquilino",
       "subtitleOne": "Completa los campos.",
-      "subtitleTwo": "El residente recibirá un email para registrar su tarjeta de débito",
+      "subtitleTwo": "El inquilino recibirá un email para registrar su tarjeta de débito",
       "subtitleThree": "Recibirás una respuesta por correo electrónico."
     },
     "stepZero": {
       "building": "Comunidad",
-      "buildingPL": "Escribe el nombre de la comunidad",
+      "buildingPL": "Escribe el nombre de la propiedad",
       "room": "Piso/Habitación",
       "roomPL": "Escribe el número del piso/habitación",
       "rentAmount": "Alquiler mensual (en €)",
@@ -36,9 +36,9 @@
       "linkCookies": "https://rimbo.rent/politica-cookies/"
     },
     "stepOne": {
-      "tenantName": "Nombre completo del residente",
-      "tenantEmail": "Correo electrónico del residente",
-      "tenantPhone": "Número de teléfono del residente",
+      "tenantName": "Nombre completo del inquilino",
+      "tenantEmail": "Correo electrónico del inquilino",
+      "tenantPhone": "Número de teléfono del inquilino",
       "tenantNamePL": "Escribe el nombre completo",
       "tenantEmailPL": "Escribe el correo electrónico",
       "tenantPhonePL": "Escribe el número de teléfono"
@@ -74,7 +74,7 @@
       "jobTypeSix": "Soy estudiante",
       "jobTypeSeven": "Otro",
       "tenantsAddress": "Dirección actual",
-      "tenantsAddressPL": "Escribe la dirección actual del residente",
+      "tenantsAddressPL": "Escribe la dirección actual del inquilino",
       "tenantsZipCode": "Código postal actual",
       "tenantsZipCodePL": "XXXXX",
       "documentType": "Tipo de documento",
@@ -99,11 +99,11 @@
     "subtitle": "We will send an email to the tenant to register the debit card with us"
   },
   "F2TT": {
-    "header": "Nuevo residente - aTemporal & Rimbo - The new way of rent",
+    "header": "Nuevo inquilino - aTemporal & Rimbo - The new way of rent",
     "titleOne": "¡Alquila este apartamento ",
     "titleTwo": "sin pagar fianza",
     "leftTextOne": "Estamos muy ilusionados de que hayas decidido formar parte de aTemporal y somos conscientes de que para ti es muy importante mudarte de una manera fácil, ágil y asequible.",
-    "leftTextTwo": "De esta manera hemos decidido que en esta comunidad no será necesario un depósito para entrar a vivir.",
+    "leftTextTwo": "De esta manera hemos decidido que en esta propiedad no será necesario un depósito para entrar a vivir.",
     "leftTextThree": "Con nosotros no tienes que adelantar la fianza. Solo tienes que registrar tu tarjeta de débito.",
     "name": "Nombre Completo: ",
     "email": "Email: ",

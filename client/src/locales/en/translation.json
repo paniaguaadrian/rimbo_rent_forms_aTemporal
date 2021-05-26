@@ -12,14 +12,14 @@
   "F1SC": {
     "helmet": "New tenancy - aTemporal & Rimbo - The new way of rent",
     "header": {
-      "title": "List your member",
+      "title": "List your tenant",
       "subtitleOne": "Fill out the fields.",
-      "subtitleTwo": "The member will receive an email to register the debit card",
+      "subtitleTwo": "The tenant will receive an email to register the debit card",
       "subtitleThree": "Receive a response via email."
     },
     "stepZero": {
       "building": "Community",
-      "buildingPL": "Write the community name",
+      "buildingPL": "Write the property name",
       "room": "Apartment/Room",
       "roomPL": "Write the apartment/room number",
       "rentAmount": "Monthly rent (in €)",
@@ -36,16 +36,16 @@
       "linkCookies": "https://rimbo.rent/en/cookies-policy/"
     },
     "stepOne": {
-      "tenantName": "Member's full name",
-      "tenantEmail": "Member's email",
-      "tenantPhone": "Member's phone number",
+      "tenantName": "Tenant's full name",
+      "tenantEmail": "Tenant's email",
+      "tenantPhone": "Tenant's phone number",
       "tenantNamePL": "Enter the name and surname",
       "tenantEmailPL": "Enter the email address",
       "tenantPhonePL": "Enter the phone number"
     },
     "stepTwo": {
       "service": "Choose service",
-      "servicePL": "Select a aTemporal service",
+      "servicePL": "Select a Rimbo service",
       "rentDuration": "Duration rental agreement (years)",
       "rentDurationPL": "Enter duration",
       "completeRentalAddress": "Address of the property",
@@ -109,11 +109,11 @@
     "subtitle": "We will send an email to the tenant to register the debit card with us"
   },
   "F2TT": {
-    "header": "New member - aTemporal & Rimbo - The new way of rent",
+    "header": "New tenant - aTemporal & Rimbo - The new way of rent",
     "titleOne": "Rent this property ",
     "titleTwo": "deposit-free",
     "leftTextOne": "We are excited about your upcoming move with aTemporal and we want to make it as easy and cost-effective for you as possible!",
-    "leftTextTwo": "This is why this community is deposit-free.",
+    "leftTextTwo": "This is why this property is deposit-free.",
     "leftTextThree": "No need to pay any deposit upfront. Just register with your debit card details.",
     "name": "Full name: ",
     "email": "Email: ",

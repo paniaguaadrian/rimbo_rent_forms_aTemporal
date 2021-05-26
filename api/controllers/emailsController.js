@@ -4,12 +4,12 @@ import hbs from "nodemailer-express-handlebars";
 
 // * Rimbo rent emails
 // Production / Development
-const rimboEmail = "info@rimbo.rent";
-const starcityEmail = "spain@starcity.com";
+// const rimboEmail = "info@rimbo.rent";
+// const atemporalEmail = "spain@starcity.com";
 // const rimboEmail = "victor@rimbo.rent";
-// const starcityEmail = "victor@rimbo.rent";
-// const rimboEmail = "paniaguasanchezadrian@gmail.com";
-// const starcityEmail = "paniaguasanchezadrian@gmail.com";
+// const atemporalEmail = "victor@rimbo.rent";
+const rimboEmail = "paniaguasanchezadrian@gmail.com";
+const atemporalEmail = "paniaguasanchezadrian@gmail.com";
 
 // ? =======>  SPANISH VERSION START ==============================>
 // ! F1SC Form => E1R (email to Rimbo) E1SC (email to Starcity)
@@ -81,9 +81,9 @@ const sendF1SCFormEmails = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E1REmail",
@@ -111,16 +111,16 @@ const sendF1SCFormEmails = async (req, res) => {
     },
   };
 
-  const StarcityEmail = {
+  const AtemporalEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: starcityEmail, // Starcity Email
+    to: atemporalEmail, // Starcity Email
     subject: "Registro de miembro correcto",
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E1SCEmail",
@@ -156,7 +156,7 @@ const sendF1SCFormEmails = async (req, res) => {
     }
   });
 
-  transporterE1SC.sendMail(StarcityEmail, (err, data) => {
+  transporterE1SC.sendMail(AtemporalEmail, (err, data) => {
     if (err) {
       console.log("There is an error here...!" + err);
     } else {
@@ -208,9 +208,9 @@ const sendE1REmailEmails = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E2TTEmail",
@@ -240,13 +240,8 @@ const sendE1REmailEmails = async (req, res) => {
 
 // ! F2SC Form => E2R (email to Rimbo that informs tenant is on F2SC)
 const sendNotificationRimbo = async (req, res) => {
-  const {
-    tenantsName,
-    tenantsEmail,
-    tenantsPhone,
-    agencyName,
-    randomID,
-  } = req.body;
+  const { tenantsName, tenantsEmail, tenantsPhone, agencyName, randomID } =
+    req.body;
 
   const transporterE2R = nodemailer.createTransport(
     sgTransport({
@@ -274,9 +269,9 @@ const sendNotificationRimbo = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E2REmail",
@@ -369,9 +364,9 @@ const sendF2SCFormEmails = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E3REmail",
@@ -414,14 +409,14 @@ const sendF2SCFormEmails = async (req, res) => {
   // Starcity Email
   const SCEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: starcityEmail, // StarCity Email
+    to: atemporalEmail, // StarCity Email
     subject: `${tenantsName} Tarjeta registrada correctamente`,
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E3SCEmail",
@@ -533,9 +528,9 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E1REmailEn",
@@ -563,16 +558,16 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     },
   };
 
-  const StarcityEmail = {
+  const AtemporalEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: starcityEmail, // Starcity Email
+    to: atemporalEmail, // Starcity Email
     subject: "Member successfully registered",
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E1SCEmailEn",
@@ -608,7 +603,7 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     }
   });
 
-  transporterE1SC.sendMail(StarcityEmail, (err, data) => {
+  transporterE1SC.sendMail(AtemporalEmail, (err, data) => {
     if (err) {
       console.log("There is an error here...!" + err);
     } else {
@@ -659,9 +654,9 @@ const sendE1REmailEmailsEn = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E2TTEmailEn",
@@ -691,13 +686,8 @@ const sendE1REmailEmailsEn = async (req, res) => {
 
 // ! F2SC Form => E2R (email to Rimbo that informs tenant is on F2SC)
 const sendNotificationRimboEn = async (req, res) => {
-  const {
-    tenantsName,
-    tenantsEmail,
-    tenantsPhone,
-    agencyName,
-    randomID,
-  } = req.body;
+  const { tenantsName, tenantsEmail, tenantsPhone, agencyName, randomID } =
+    req.body;
 
   const transporterE2R = nodemailer.createTransport(
     sgTransport({
@@ -725,9 +715,9 @@ const sendNotificationRimboEn = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E2REmailEn",
@@ -820,9 +810,9 @@ const sendF2SCFormEmailsEn = async (req, res) => {
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E3REmailEn",
@@ -849,8 +839,7 @@ const sendF2SCFormEmailsEn = async (req, res) => {
       },
       {
         filename: "Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
-        path:
-          "./views/images/Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
+        path: "./views/images/Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
       },
     ],
     template: "E3TTEmailEn",
@@ -866,14 +855,14 @@ const sendF2SCFormEmailsEn = async (req, res) => {
   // Starcity Email
   const SCEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: starcityEmail, // StarCity Email
+    to: atemporalEmail, // StarCity Email
     subject: `${tenantsName} Card successfully registered`,
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
     ],
     template: "E3SCEmailEn",
