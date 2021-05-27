@@ -42,6 +42,10 @@
       "linkCookies": "https://rimbo.rent/en/cookies-policy/"
     },
     "stepOne": {
+      "tenantsFirstName": "Tenant's first name",
+      "tenantsFirstNamePL": "Enter the first name",
+      "tenantsLastName": "Tenant's last name",
+      "tenantsLastNamePL": "Enter the last name",
       "tenantName": "Tenant's full name",
       "tenantEmail": "Tenant's email",
       "tenantPhone": "Tenant's phone number",

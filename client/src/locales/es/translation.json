@@ -42,6 +42,10 @@
       "linkCookies": "https://rimbo.rent/politica-cookies/"
     },
     "stepOne": {
+      "tenantsFirstName": "Nombre del inquilino",
+      "tenantsFirstNamePL": "Escribe el nombre del inquilino",
+      "tenantsLastName": "Apellido/s del inquilino",
+      "tenantsLastNamePL": "Escribe el apellido del inquilino",
       "tenantName": "Nombre completo del inquilino",
       "tenantEmail": "Correo electrónico del inquilino",
       "tenantPhone": "Número de teléfono del inquilino",

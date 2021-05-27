@@ -133,7 +133,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         randomID: data.tenant.randomID,
         //  Tenancy
         rentAmount: data.rentAmount,
-        acceptanceCriteria: data.acceptanceCriteria,
         rentStartDate: data.rentStartDate.slice(0, 10),
         rentEndDate: data.rentEndDate.slice(0, 10),
         tenancyID: data.tenancyID,
@@ -160,7 +159,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         randomID: data.tenant.randomID,
         //  Tenancy
         rentAmount: data.rentAmount,
-        acceptanceCriteria: data.acceptanceCriteria,
         rentStartDate: data.rentStartDate.slice(0, 10),
         rentEndDate: data.rentEndDate.slice(0, 10),
         tenancyID: data.tenancyID,
@@ -219,7 +217,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         randomID: randomID,
         //  Tenancy
         rentAmount: tenancy.propertyDetails.rentAmount,
-        acceptanceCriteria: tenancy.tenantPersonalDetails.acceptanceCriteria,
         rentStartDate: tenancy.propertyDetails.rentStartDate,
         rentEndDate: tenancy.propertyDetails.rentEndDate,
         tenancyID: randomID,
@@ -477,19 +474,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
                 name="DB"
                 label={t("F1SC.stepThree.DB")}
                 onChange={changeHandler}
-              />
-            </div>
-          </div>
-          <div className={styles.GroupInputAlone}>
-            <div className={styles.FormLeft}>
-              <Input
-                type="text"
-                name="acceptanceCriteria"
-                value={tenancy.propertyDetails.acceptanceCriteria}
-                label={t("F1SC.stepZero.acceptance")}
-                placeholder={t("F1SC.stepZero.acceptancePL")}
-                onChange={(e) => handleTenant(e)}
-                error={errors.acceptanceCriteria}
               />
             </div>
           </div>

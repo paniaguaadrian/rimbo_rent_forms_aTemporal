@@ -21,7 +21,8 @@ export const DefaultTenancy = {
   },
 
   tenantContactDetails: {
-    tenantName: "",
+    tenantsFirstName: "",
+    tenantsLastName: "",
     tenantPhone: "",
     tenantEmail: "",
     randomID: "",
@@ -36,7 +37,6 @@ export const DefaultTenancy = {
     documentType: "",
     documentNumber: "",
     monthlyNetIncome: "",
-    acceptanceCriteria: "",
     jobType: "",
     isAgentAccepted: true,
   },
