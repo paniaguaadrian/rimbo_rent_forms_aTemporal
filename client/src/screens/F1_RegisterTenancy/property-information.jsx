@@ -103,7 +103,10 @@ const PropertyDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         </div>
       </div>
 
-      <div className={styles.AloneButtonContainer}>
+      <div className={styles.ButtonContainer}>
+        <Button onClick={() => setStep(step - 1)} type="button">
+          {t("prevStepButton")}
+        </Button>
         <Button type="submit">{t("nextStepButton")}</Button>
       </div>
     </form>
