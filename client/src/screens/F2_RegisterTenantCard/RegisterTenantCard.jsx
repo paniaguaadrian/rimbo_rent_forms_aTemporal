@@ -72,6 +72,9 @@ const RegisterTenantCard = ({ t }) => {
   const elements = useElements();
 
   const [tenancyData, setTenancyData] = useState([]);
+  const [tenantsName, setTenantsName] = useState("");
+  const [tenantsFirstName, setTenantsFirstName] = useState("");
+  const [tenantsLastName, setTenantsLastName] = useState("");
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null); //eslint-disable-line
 
@@ -126,25 +129,45 @@ const RegisterTenantCard = ({ t }) => {
 
       const { data: decisionResult } = await postDecision(postBody);
 
-      const { tenantsName, tenantsEmail, tenantsPhone } = tenancyData.tenant;
-      const { agencyName } = tenancyData.agent;
+      const { tenantsFirstName, tenantsLastName, tenantsEmail, tenantsPhone } =
+        tenancyData.tenant;
+      const {
+        agencyName,
+        agencyEmailPerson,
+        agencyContactPerson,
+        agencyPhonePerson,
+      } = tenancyData.agent;
+
+      const tenantsName = `${tenantsFirstName} ${tenantsLastName}`;
+
+      setTenantsName(tenantsName);
+      setTenantsFirstName(tenantsFirstName);
+      setTenantsLastName(tenantsLastName);
 
       if (tenancyData.tenant.isTrying === false) {
         if (i18n.language === "en") {
           axios.post(`${REACT_APP_BASE_URL_EMAIL}/en/e2r`, {
-            tenantsName,
+            tenantsFirstName,
+            tenantsLastName,
             tenantsEmail,
             tenantsPhone,
             randomID,
             agencyName,
+            agencyEmailPerson,
+            agencyContactPerson,
+            agencyPhonePerson,
           });
         } else {
           axios.post(`${REACT_APP_BASE_URL_EMAIL}/e2r`, {
-            tenantsName,
+            tenantsFirstName,
+            tenantsLastName,
             tenantsEmail,
             tenantsPhone,
             randomID,
             agencyName,
+            agencyEmailPerson,
+            agencyContactPerson,
+            agencyPhonePerson,
           });
         }
       }
@@ -224,23 +247,31 @@ const RegisterTenantCard = ({ t }) => {
         // ! Post to Email service
         if (i18n.language === "en") {
           await axios.post(`${REACT_APP_BASE_URL_EMAIL}/en/e3`, {
-            tenantsName,
+            tenantsFirstName,
+            tenantsLastName,
             tenantsEmail,
             tenantsPhone,
             timestamps,
             agencyName: tenancyData.agent.agencyName,
-            building: tenancyData.property.building,
+            agencyEmailPerson: tenancyData.agent.agencyEmailPerson,
+            agencyContactPerson: tenancyData.agent.agencyContactPerson,
+            agencyPhonePerson: tenancyData.agent.agencyPhonePerson,
+            rentalAddress: tenancyData.property.rentalAddress,
             rentStartDate: tenancyData.rentStartDate,
             rentEndDate: tenancyData.rentEndDate,
           });
         } else {
           await axios.post(`${REACT_APP_BASE_URL_EMAIL}/e3`, {
-            tenantsName,
+            tenantsFirstName,
+            tenantsLastName,
             tenantsEmail,
             tenantsPhone,
             timestamps,
             agencyName: tenancyData.agent.agencyName,
-            building: tenancyData.property.building,
+            agencyEmailPerson: tenancyData.agent.agencyEmailPerson,
+            agencyContactPerson: tenancyData.agent.agencyContactPerson,
+            agencyPhonePerson: tenancyData.agent.agencyPhonePerson,
+            rentalAddress: tenancyData.property.rentalAddress,
             rentStartDate: tenancyData.rentStartDate,
             rentEndDate: tenancyData.rentEndDate,
           });
@@ -265,7 +296,7 @@ const RegisterTenantCard = ({ t }) => {
                 color="#01d2cc"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
+                timeout={6000} //6 secs
               />
             </div>
           ) : (
@@ -297,7 +328,7 @@ const RegisterTenantCard = ({ t }) => {
                           <input
                             id="name"
                             type="text"
-                            value={tenancyData.tenant.tenantsName}
+                            value={tenantsName}
                             disabled
                           />
                         </div>
@@ -386,7 +417,7 @@ const RegisterTenantCard = ({ t }) => {
                             color="#01d2cc"
                             height={50}
                             width={50}
-                            timeout={3000} //3 secs
+                            timeout={6000} //6 secs
                           />
                         ) : (
                           <button disabled={isProcessing || !stripe}>
