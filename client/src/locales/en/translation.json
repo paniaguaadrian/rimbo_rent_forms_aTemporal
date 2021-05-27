@@ -18,6 +18,12 @@
       "subtitleThree": "Receive a response via email."
     },
     "stepZero": {
+      "agencyContactPerson": "Agent's full name",
+      "agencyContactPersonPL": "Write your full name",
+      "agencyEmailPerson": "Agent's email address",
+      "agencyEmailPersonPL": "Write your email address",
+      "agencyPhonePerson": "Agent's phone number",
+      "agencyPhonePersonPL": "Write your phone number",
       "building": "Community",
       "buildingPL": "Write the property name",
       "room": "Apartment/Room",

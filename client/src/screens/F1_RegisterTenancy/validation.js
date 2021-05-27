@@ -1,3 +1,27 @@
+export const isAgency = (values) => {
+  let errors = {};
+
+  if (!values.agencyContactPerson) {
+    errors.agencyContactPerson = "Name of the agent is required";
+  }
+
+  if (!values.agencyEmailPerson) {
+    errors.agencyEmailPerson = "Agent email address is required";
+  } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.agencyEmailPerson = "Email address is invalid";
+  }
+
+  if (!values.agencyPhonePerson) {
+    errors.agencyPhonePerson = "Phone number is required";
+  }
+
+  if (values.agencyPhonePerson && values.agencyPhonePerson.length < 9) {
+    errors.agencyPhonePerson = "Enter valid phone number";
+  }
+
+  return errors;
+};
+
 export const isProperty = (values) => {
   let errors = {};
 

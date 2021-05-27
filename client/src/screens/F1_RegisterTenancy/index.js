@@ -31,7 +31,7 @@ const RegisterTenancy = ({ t }) => {
       <NavBar />
       <WhatsappBubble />
       <div className={styles.RegisterContainer}>
-        {step === 0 || step === 1 || step === 2 ? (
+        {step === 0 || step === 1 || step === 2 || step === 3 ? (
           <div className={styles.Register}>
             <h1>{t("F1SC.header.title")}</h1>
             <div className={styles.ExtraInfoContainer}>

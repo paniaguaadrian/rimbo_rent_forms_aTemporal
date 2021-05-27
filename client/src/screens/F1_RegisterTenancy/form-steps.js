@@ -1,9 +1,22 @@
+import AgencyDetails from "./agency-details";
 import TenantContactDetails from "./tenant-contact-details";
 import TenantPersonalDetails from "./tenant-personal-details";
 import PropertyDetails from "./property-information";
 import Completed from "./completed";
 
 const FormSteps = (step, setStep, tenancy, setTenancy) => [
+  {
+    title: "Agent Details",
+    titleEs: "Detalles del agente",
+    content: (
+      <AgencyDetails
+        setStep={setStep}
+        step={step}
+        tenancy={tenancy}
+        setTenancy={setTenancy}
+      />
+    ),
+  },
   {
     title: "Apartment Details",
     titleEs: "Detalles de la propiedad",
@@ -17,8 +30,8 @@ const FormSteps = (step, setStep, tenancy, setTenancy) => [
     ),
   },
   {
-    title: "Member's contact information",
-    titleEs: "Información de contacto del residente",
+    title: "Tenant's contact information",
+    titleEs: "Información de contacto del inquilino",
     content: (
       <TenantContactDetails
         setStep={setStep}
@@ -29,8 +42,8 @@ const FormSteps = (step, setStep, tenancy, setTenancy) => [
     ),
   },
   {
-    title: "Member's personal information",
-    titleEs: "Información personal del residente",
+    title: "Tenant's personal information",
+    titleEs: "Información personal del inquilino",
     content: (
       <TenantPersonalDetails
         setStep={setStep}

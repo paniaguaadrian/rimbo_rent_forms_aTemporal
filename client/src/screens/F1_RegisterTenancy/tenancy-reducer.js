@@ -6,7 +6,10 @@ import {
 } from "./constants";
 
 export const DefaultTenancy = {
-  agencyName: "Starcity",
+  agencyName: "aTemporal",
+  agencyContactPerson: "",
+  agencyEmailPerson: "",
+  agencyPhonePerson: "",
   tenancyID: "",
 
   propertyDetails: {
