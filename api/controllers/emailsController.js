@@ -4,9 +4,10 @@ import hbs from "nodemailer-express-handlebars";
 
 // * Rimbo rent emails
 // Production / Development
-// const rimboEmail = "info@rimbo.rent";
+const rimboEmail = "info@rimbo.rent";
+
 // const rimboEmail = "victor@rimbo.rent";
-const rimboEmail = "paniaguasanchezadrian@gmail.com";
+// const rimboEmail = "paniaguasanchezadrian@gmail.com";
 
 // ? =======>  SPANISH VERSION START ==============================>
 // ! F1SC Form => E1R (email to Rimbo) E1SC (email to Starcity)
@@ -510,8 +511,8 @@ const sendF2SCFormEmails = async (req, res) => {
         cid: "atemporallogo",
       },
       {
-        filename: "Tenant_Guía_&_Reglas_generales_Starcity_ES.pdf",
-        path: "./views/images/Tenant_Guía_&_Reglas_generales_Starcity_ES.pdf",
+        filename: "Tenant_General_Rules_Guidelines _ATEMPORAL_ES.pdf",
+        path: "./views/images/Tenant_General_Rules_Guidelines _ATEMPORAL_ES.pdf",
       },
     ],
     template: "E3TTEmail",
@@ -1113,8 +1114,8 @@ const sendF2SCFormEmailsEn = async (req, res) => {
         cid: "atemporallogo",
       },
       {
-        filename: "Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
-        path: "./views/images/Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
+        filename: "Tenant_General_Rules_Guidelines_ATEMPORAL_EN.pdf",
+        path: "./views/images/Tenant_General_Rules_Guidelines_ATEMPORAL_EN.pdf",
       },
     ],
     template: "E3TTEmailEn",
