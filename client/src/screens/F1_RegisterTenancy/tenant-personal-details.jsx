@@ -118,8 +118,12 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
       await axios.post(`${REACT_APP_BASE_URL_EMAIL}/en/e1r`, {
         //  Agency
         agencyName: data.agent.agencyName,
+        agencyContactPerson: data.agent.agencyContactPerson,
+        agencyEmailPerson: data.agent.agencyEmailPerson,
+        agencyPhonePerson: data.agent.agencyPhonePerson,
         // Tenant
-        tenantsName: data.tenant.tenantsName,
+        tenantsFirstName: data.tenant.tenantsFirstName,
+        tenantsLastName: data.tenant.tenantsLastName,
         tenantsEmail: data.tenant.tenantsEmail,
         tenantsPhone: data.tenant.tenantsPhone,
         tenantsAddress: data.tenant.tenantsAddress,
@@ -138,13 +142,18 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: data.tenancyID,
         // Property
         building: data.property.building,
+        rentalAddress: data.property.rentalAddress,
       });
     } else {
       await axios.post(`${REACT_APP_BASE_URL_EMAIL}/e1r`, {
         //  Agency
         agencyName: data.agent.agencyName,
+        agencyContactPerson: data.agent.agencyContactPerson,
+        agencyEmailPerson: data.agent.agencyEmailPerson,
+        agencyPhonePerson: data.agent.agencyPhonePerson,
         // Tenant
-        tenantsName: data.tenant.tenantsName,
+        tenantsFirstName: data.tenant.tenantsFirstName,
+        tenantsLastName: data.tenant.tenantsLastName,
         tenantsEmail: data.tenant.tenantsEmail,
         tenantsPhone: data.tenant.tenantsPhone,
         tenantsAddress: data.tenant.tenantsAddress,
@@ -163,6 +172,7 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: data.tenancyID,
         // Property
         building: data.property.building,
+        rentalAddress: data.property.rentalAddress,
       });
     }
   };
@@ -200,9 +210,13 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
       {
         //  Agency
         agencyName: tenancy.agencyName,
+        agencyContactPerson: tenancy.agencyContactPerson,
+        agencyEmailPerson: tenancy.agencyEmailPerson,
+        agencyPhonePerson: tenancy.agencyPhonePerson,
         isAgentAccepted: tenancy.tenantPersonalDetails.isAgentAccepted,
         // Tenant
-        tenantsName: tenancy.tenantContactDetails.tenantName,
+        tenantsFirstName: tenancy.tenantContactDetails.tenantsFirstName,
+        tenantsLastName: tenancy.tenantContactDetails.tenantsLastName,
         tenantsEmail: tenancy.tenantContactDetails.tenantEmail,
         tenantsPhone: tenancy.tenantContactDetails.tenantPhone,
         tenantsAddress: tenantsAddress,
@@ -220,6 +234,7 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: randomID,
         // Property
         building: tenancy.propertyDetails.building,
+        rentalAddress: tenancy.propertyDetails.rentalAddress,
       }
     );
 

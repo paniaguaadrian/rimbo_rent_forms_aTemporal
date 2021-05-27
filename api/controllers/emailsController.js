@@ -5,18 +5,16 @@ import hbs from "nodemailer-express-handlebars";
 // * Rimbo rent emails
 // Production / Development
 // const rimboEmail = "info@rimbo.rent";
-// const atemporalEmail = "spain@starcity.com";
 // const rimboEmail = "victor@rimbo.rent";
-// const atemporalEmail = "victor@rimbo.rent";
 const rimboEmail = "paniaguasanchezadrian@gmail.com";
-const atemporalEmail = "paniaguasanchezadrian@gmail.com";
 
 // ? =======>  SPANISH VERSION START ==============================>
 // ! F1SC Form => E1R (email to Rimbo) E1SC (email to Starcity)
 const sendF1SCFormEmails = async (req, res) => {
   const {
     agencyName,
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     tenantsPhone,
     tenantsAddress,
@@ -33,6 +31,11 @@ const sendF1SCFormEmails = async (req, res) => {
     rentEndDate,
     tenancyID,
     building,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE1R = nodemailer.createTransport(
@@ -75,7 +78,7 @@ const sendF1SCFormEmails = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `Nuevo miembro registrado por ${agencyName}`,
+    subject: `Nuevo inquilino registrado por ${agencyName}`,
     text: "",
     attachments: [
       {
@@ -87,7 +90,8 @@ const sendF1SCFormEmails = async (req, res) => {
     template: "E1REmail",
     context: {
       agencyName,
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       tenantsAddress,
@@ -104,13 +108,18 @@ const sendF1SCFormEmails = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
   const AtemporalEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: atemporalEmail, // Starcity Email
-    subject: "Registro de miembro correcto",
+    to: agencyEmailPerson, // aTemporal Email
+    subject: "Registro de inquilino correcto",
     text: "",
     attachments: [
       {
@@ -122,7 +131,8 @@ const sendF1SCFormEmails = async (req, res) => {
     template: "E1SCEmail",
     context: {
       agencyName,
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       tenantsAddress,
@@ -139,6 +149,11 @@ const sendF1SCFormEmails = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -164,7 +179,8 @@ const sendF1SCFormEmails = async (req, res) => {
 // ! E1R Email => E2TT (email to Tenant)
 const sendE1REmailEmails = async (req, res) => {
   const {
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     randomID,
     agencyName,
@@ -172,6 +188,11 @@ const sendE1REmailEmails = async (req, res) => {
     tenancyID,
     rentStartDate,
     rentEndDate,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE2TT = nodemailer.createTransport(
@@ -208,7 +229,8 @@ const sendE1REmailEmails = async (req, res) => {
     ],
     template: "E2TTEmail",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       randomID,
       agencyName,
@@ -216,6 +238,11 @@ const sendE1REmailEmails = async (req, res) => {
       tenancyID,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -232,8 +259,14 @@ const sendE1REmailEmails = async (req, res) => {
 
 // ! F2SC Form => E2R (email to Rimbo that informs tenant is on F2SC)
 const sendNotificationRimbo = async (req, res) => {
-  const { tenantsName, tenantsEmail, tenantsPhone, agencyName, randomID } =
-    req.body;
+  const {
+    tenantsFirstName,
+    tenantsLastName,
+    tenantsEmail,
+    tenantsPhone,
+    agencyName,
+    randomID,
+  } = req.body;
 
   const transporterE2R = nodemailer.createTransport(
     sgTransport({
@@ -257,7 +290,7 @@ const sendNotificationRimbo = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `${agencyName}-${tenantsName}-Registration Start`,
+    subject: `${agencyName}-${tenantsFirstName} ${tenantsLastName}-Registration Start`,
     text: "",
     attachments: [
       {
@@ -268,7 +301,8 @@ const sendNotificationRimbo = async (req, res) => {
     ],
     template: "E2REmail",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       agencyName,
@@ -287,15 +321,21 @@ const sendNotificationRimbo = async (req, res) => {
   res.status(200).json();
 };
 
-// ! F2SC Form => E3 (Rimbo, tenant, StarCity)
+// ! F2SC Form => E3 (Rimbo, tenant, aTemporal)
 const sendF2SCFormEmails = async (req, res) => {
   const {
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     agencyName,
     building,
     rentStartDate,
     rentEndDate,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE3R = nodemailer.createTransport(
@@ -352,7 +392,7 @@ const sendF2SCFormEmails = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `${tenantsName} Tarjeta registrada correctamente`,
+    subject: `${tenantsFirstName} ${tenantsLastName} Tarjeta registrada correctamente`,
     text: "",
     attachments: [
       {
@@ -363,25 +403,31 @@ const sendF2SCFormEmails = async (req, res) => {
     ],
     template: "E3REmail",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
   // Tenant Email
   const TenantEmail = {
     from: "Rimbo info@rimbo.rent",
     to: tenantsEmail, // Tenant Email
-    subject: "Bienvenido a Starcity & Rimbo",
+    subject: "Bienvenido a aTemporal & Rimbo",
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
       {
         filename: "Tenant_Guía_&_Reglas_generales_Starcity_ES.pdf",
@@ -390,19 +436,25 @@ const sendF2SCFormEmails = async (req, res) => {
     ],
     template: "E3TTEmail",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
   // Starcity Email
   const SCEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: atemporalEmail, // StarCity Email
-    subject: `${tenantsName} Tarjeta registrada correctamente`,
+    to: agencyEmailPerson, // Atemporal Email
+    subject: `${tenantsFirstName} ${tenantsLastName} Tarjeta registrada correctamente`,
     text: "",
     attachments: [
       {
@@ -413,12 +465,18 @@ const sendF2SCFormEmails = async (req, res) => {
     ],
     template: "E3SCEmail",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -455,7 +513,8 @@ const sendF2SCFormEmails = async (req, res) => {
 const sendF1SCFormEmailsEn = async (req, res) => {
   const {
     agencyName,
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     tenantsPhone,
     tenantsAddress,
@@ -472,6 +531,11 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     rentEndDate,
     tenancyID,
     building,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE1R = nodemailer.createTransport(
@@ -514,7 +578,7 @@ const sendF1SCFormEmailsEn = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `New Member Listing by ${agencyName}`,
+    subject: `New Tenant Listing by ${agencyName}`,
     text: "",
     attachments: [
       {
@@ -526,7 +590,8 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     template: "E1REmailEn",
     context: {
       agencyName,
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       tenantsAddress,
@@ -543,13 +608,18 @@ const sendF1SCFormEmailsEn = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
   const AtemporalEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: atemporalEmail, // Starcity Email
-    subject: "Member successfully registered",
+    to: agencyEmailPerson, // Starcity Email
+    subject: "Tenant successfully registered",
     text: "",
     attachments: [
       {
@@ -561,7 +631,8 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     template: "E1SCEmailEn",
     context: {
       agencyName,
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       tenantsAddress,
@@ -578,6 +649,11 @@ const sendF1SCFormEmailsEn = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -603,7 +679,8 @@ const sendF1SCFormEmailsEn = async (req, res) => {
 // ! E1R Email => E2TT (email to Tenant)
 const sendE1REmailEmailsEn = async (req, res) => {
   const {
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     randomID,
     agencyName,
@@ -611,6 +688,11 @@ const sendE1REmailEmailsEn = async (req, res) => {
     tenancyID,
     rentStartDate,
     rentEndDate,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE2TT = nodemailer.createTransport(
@@ -646,7 +728,8 @@ const sendE1REmailEmailsEn = async (req, res) => {
     ],
     template: "E2TTEmailEn",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       randomID,
       agencyName,
@@ -654,6 +737,11 @@ const sendE1REmailEmailsEn = async (req, res) => {
       tenancyID,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -670,8 +758,14 @@ const sendE1REmailEmailsEn = async (req, res) => {
 
 // ! F2SC Form => E2R (email to Rimbo that informs tenant is on F2SC)
 const sendNotificationRimboEn = async (req, res) => {
-  const { tenantsName, tenantsEmail, tenantsPhone, agencyName, randomID } =
-    req.body;
+  const {
+    tenantsFirstName,
+    tenantsLastName,
+    tenantsEmail,
+    tenantsPhone,
+    agencyName,
+    randomID,
+  } = req.body;
 
   const transporterE2R = nodemailer.createTransport(
     sgTransport({
@@ -695,7 +789,7 @@ const sendNotificationRimboEn = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `${agencyName}-${tenantsName}-Registration Start`,
+    subject: `${agencyName}-${tenantsFirstName} ${tenantsLastName}-Registration Start`,
     text: "",
     attachments: [
       {
@@ -706,11 +800,17 @@ const sendNotificationRimboEn = async (req, res) => {
     ],
     template: "E2REmailEn",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       tenantsPhone,
       agencyName,
       randomID,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
@@ -725,15 +825,21 @@ const sendNotificationRimboEn = async (req, res) => {
   res.status(200).json();
 };
 
-// ! F2SC Form => E3 (Rimbo, tenant, StarCity)
+// ! F2SC Form => E3 (Rimbo, tenant, aTemporal)
 const sendF2SCFormEmailsEn = async (req, res) => {
   const {
-    tenantsName,
+    tenantsFirstName,
+    tenantsLastName,
     tenantsEmail,
     agencyName,
     building,
     rentStartDate,
     rentEndDate,
+    // new variables
+    agencyContactPerson,
+    agencyEmailPerson,
+    agencyPhonePerson,
+    rentalAddress,
   } = req.body;
 
   const transporterE3R = nodemailer.createTransport(
@@ -790,7 +896,7 @@ const sendF2SCFormEmailsEn = async (req, res) => {
   const RimboEmail = {
     from: "Rimbo info@rimbo.rent",
     to: rimboEmail, // Rimbo Email
-    subject: `${tenantsName} Card successfully registered`,
+    subject: `${tenantsFirstName} ${tenantsLastName} Card successfully registered`,
     text: "",
     attachments: [
       {
@@ -801,25 +907,31 @@ const sendF2SCFormEmailsEn = async (req, res) => {
     ],
     template: "E3REmailEn",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
   // Tenant Email
   const TenantEmail = {
     from: "Rimbo info@rimbo.rent",
     to: tenantsEmail, // Tenant Email
-    subject: "Welcome to Starcity & Rimbo",
+    subject: "Welcome to aTemporal & Rimbo",
     text: "",
     attachments: [
       {
-        filename: "starcity-logo.png",
-        path: "./views/images/starcity-logo.png",
-        cid: "starcitylogo",
+        filename: "atemporal_logo.png",
+        path: "./views/images/atemporal_logo.png",
+        cid: "atemporallogo",
       },
       {
         filename: "Tenant_General_Rules_&_Guidelines_Starcity_EN.pdf",
@@ -828,19 +940,24 @@ const sendF2SCFormEmailsEn = async (req, res) => {
     ],
     template: "E3TTEmailEn",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
-      rentEndDate,
+      rentEndDate, // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
   // Starcity Email
   const SCEmail = {
     from: "Rimbo info@rimbo.rent",
-    to: atemporalEmail, // StarCity Email
-    subject: `${tenantsName} Card successfully registered`,
+    to: agencyEmailPerson, // aTemporal Email
+    subject: `${tenantsFirstName} ${tenantsLastName} Card successfully registered`,
     text: "",
     attachments: [
       {
@@ -851,12 +968,18 @@ const sendF2SCFormEmailsEn = async (req, res) => {
     ],
     template: "E3SCEmailEn",
     context: {
-      tenantsName,
+      tenantsFirstName,
+      tenantsLastName,
       tenantsEmail,
       agencyName,
       building,
       rentStartDate,
       rentEndDate,
+      // new variables
+      agencyContactPerson,
+      agencyEmailPerson,
+      agencyPhonePerson,
+      rentalAddress,
     },
   };
 
