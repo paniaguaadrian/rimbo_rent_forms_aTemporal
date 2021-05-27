@@ -7,6 +7,7 @@ import hbs from "nodemailer-express-handlebars";
 const rimboEmail = "info@rimbo.rent";
 
 // const rimboEmail = "victor@rimbo.rent";
+
 // const rimboEmail = "paniaguasanchezadrian@gmail.com";
 
 // ? =======>  SPANISH VERSION START ==============================>

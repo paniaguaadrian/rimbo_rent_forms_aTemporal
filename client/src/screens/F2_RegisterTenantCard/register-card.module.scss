@@ -538,8 +538,8 @@ input[type="text"]:focus {
     margin-top: 1rem;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
     width: 50rem;
     height: 25rem;
     position: relative;
@@ -559,11 +559,13 @@ input[type="text"]:focus {
   margin-top: 6rem;
   @include xl {
     display: flex;
+    margin-top: 0rem;
     /* position: relative; */
     flex-direction: column;
-    justify-content: left;
+    justify-content: center;
+    align-items: center;
     width: 30rem;
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -572,7 +574,7 @@ input[type="text"]:focus {
     font-size: 1.3rem;
     font-weight: 100;
     line-height: 1.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   font-size: 1.8rem;
   font-weight: 100;
@@ -586,6 +588,7 @@ input[type="text"]:focus {
   margin-top: 2rem;
   // width: 45rem;
   @include xl {
+    margin-top: 0rem;
     display: flex;
     flex-direction: column;
     width: 45rem;
