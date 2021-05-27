@@ -13,8 +13,12 @@ export const DefaultTenancy = {
   tenancyID: "",
 
   propertyDetails: {
+    rentalAddress: "",
+    rentalCity: "",
+    route: "",
+    rentalPostalCode: "",
+    streetNumber: "",
     building: "",
-    room: "",
     rentAmount: "",
     rentStartDate: "",
     rentEndDate: "",

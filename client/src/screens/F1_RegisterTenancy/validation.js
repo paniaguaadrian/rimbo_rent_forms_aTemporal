@@ -25,12 +25,13 @@ export const isAgency = (values) => {
 export const isProperty = (values) => {
   let errors = {};
 
-  if (!values.building) {
-    errors.building = "Enter a building for the tenant.";
+  if (!values.rentalAddress) {
+    errors.rentalAddress =
+      "You must select the address suggested by Google Maps";
   }
 
-  if (!values.room) {
-    errors.room = "Enter a room for the tenant.";
+  if (!values.building) {
+    errors.building = "Enter a building for the tenant.";
   }
 
   if (!values.rentAmount) {

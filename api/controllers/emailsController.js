@@ -33,7 +33,6 @@ const sendF1SCFormEmails = async (req, res) => {
     rentEndDate,
     tenancyID,
     building,
-    room,
   } = req.body;
 
   const transporterE1R = nodemailer.createTransport(
@@ -105,7 +104,6 @@ const sendF1SCFormEmails = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
-      room,
     },
   };
 
@@ -141,7 +139,6 @@ const sendF1SCFormEmails = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
-      room,
     },
   };
 
@@ -172,7 +169,6 @@ const sendE1REmailEmails = async (req, res) => {
     randomID,
     agencyName,
     building,
-    room,
     tenancyID,
     rentStartDate,
     rentEndDate,
@@ -217,7 +213,6 @@ const sendE1REmailEmails = async (req, res) => {
       randomID,
       agencyName,
       building,
-      room,
       tenancyID,
       rentStartDate,
       rentEndDate,
@@ -477,7 +472,6 @@ const sendF1SCFormEmailsEn = async (req, res) => {
     rentEndDate,
     tenancyID,
     building,
-    room,
   } = req.body;
 
   const transporterE1R = nodemailer.createTransport(
@@ -549,7 +543,6 @@ const sendF1SCFormEmailsEn = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
-      room,
     },
   };
 
@@ -585,7 +578,6 @@ const sendF1SCFormEmailsEn = async (req, res) => {
       rentEndDate,
       tenancyID,
       building,
-      room,
     },
   };
 
@@ -616,7 +608,6 @@ const sendE1REmailEmailsEn = async (req, res) => {
     randomID,
     agencyName,
     building,
-    room,
     tenancyID,
     rentStartDate,
     rentEndDate,
@@ -660,7 +651,6 @@ const sendE1REmailEmailsEn = async (req, res) => {
       randomID,
       agencyName,
       building,
-      room,
       tenancyID,
       rentStartDate,
       rentEndDate,

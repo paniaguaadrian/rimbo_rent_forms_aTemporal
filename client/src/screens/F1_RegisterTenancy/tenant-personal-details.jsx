@@ -138,7 +138,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: data.tenancyID,
         // Property
         building: data.property.building,
-        room: data.property.room,
       });
     } else {
       await axios.post(`${REACT_APP_BASE_URL_EMAIL}/e1r`, {
@@ -164,7 +163,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: data.tenancyID,
         // Property
         building: data.property.building,
-        room: data.property.room,
       });
     }
   };
@@ -222,7 +220,6 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
         tenancyID: randomID,
         // Property
         building: tenancy.propertyDetails.building,
-        room: tenancy.propertyDetails.room,
       }
     );
 

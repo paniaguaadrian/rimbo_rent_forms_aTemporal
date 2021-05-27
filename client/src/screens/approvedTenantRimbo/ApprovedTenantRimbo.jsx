@@ -62,7 +62,7 @@ const ApprovedTenantRimbo = ({ t }) => {
 
       const { tenantsName, tenantsEmail, randomID } = tenancyData.tenant;
       const { agencyName } = tenancyData.agent;
-      const { building, room } = tenancyData.property;
+      const { building } = tenancyData.property;
       const { tenancyID, rentStartDate, rentEndDate } = tenancyData;
 
       if (tenancyData.tenant.isRimboAccepted === false) {
@@ -72,40 +72,11 @@ const ApprovedTenantRimbo = ({ t }) => {
           randomID,
           agencyName,
           building,
-          room,
           tenancyID,
           rentStartDate,
           rentEndDate,
         });
       }
-
-      // if (tenancyData.tenant.isRimboAccepted === false) {
-      //   if (i18n.language === "en") {
-      //     axios.post(`${REACT_APP_BASE_URL_EMAIL}/en/e2tt`, {
-      //       tenantsName,
-      //       tenantsEmail,
-      //       randomID,
-      //       agencyName,
-      //       building,
-      //       room,
-      //       tenancyID,
-      //       rentStartDate,
-      //       rentEndDate,
-      //     });
-      //   } else {
-      //     axios.post(`${REACT_APP_BASE_URL_EMAIL}/e2tt`, {
-      //       tenantsName,
-      //       tenantsEmail,
-      //       randomID,
-      //       agencyName,
-      //       building,
-      //       room,
-      //       tenancyID,
-      //       rentStartDate,
-      //       rentEndDate,
-      //     });
-      //   }
-      // }
 
       setState(decisionResult);
     };
