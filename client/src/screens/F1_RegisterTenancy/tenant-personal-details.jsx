@@ -35,7 +35,7 @@ import PlacesAutocomplete, {
 const {
   REACT_APP_BASE_URL,
   REACT_APP_API_RIMBO_TENANCY,
-  REACT_APP_API_RIMBO_TENANCY_STARCITY,
+  REACT_APP_API_RIMBO_TENANCY_ATEMPORAL,
   REACT_APP_API_RIMBO_TENANT,
   REACT_APP_BASE_URL_EMAIL,
 } = process.env;
@@ -206,7 +206,7 @@ const TenantPersonalDetails = ({ step, setStep, tenancy, setTenancy, t }) => {
 
     //  Send regular data to DB
     await axios.post(
-      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY_STARCITY}`,
+      `${REACT_APP_BASE_URL}${REACT_APP_API_RIMBO_TENANCY_ATEMPORAL}`,
       {
         //  Agency
         agencyName: tenancy.agencyName,
