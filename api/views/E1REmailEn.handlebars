@@ -404,7 +404,7 @@ a{
 							<div class="text" style="padding: 0em 3em; text-align: left; color: black;">
 								<h3>Tenant:</h3>
 								<ul>
-                                    <li>Tenant's full name: {{tenantsName}}</li>
+                                    <li>Tenant's full name: {{tenantsFirstName}} {{tenantsLastName}}</li>
                                     <li>Tenant's email: {{tenantsEmail}}</li>
 									<li>Tenant's phone number: {{tenantsPhone}}</li>
 									<li>Tenant's current address: {{tenantsAddress}}</li>
@@ -413,14 +413,19 @@ a{
 									<li>Document number: {{documentNumber}}</li>
 									<li>Monthly net income: {{monthlyNetIncome}}€</li>
 									<li>Job type: {{jobType}}</li>
-
-									
 									<li>Document image (Front): {{documentImageFront}}</li>
 									<li>Document image (Back): {{documentImageBack}}</li>
                                 </ul>
+								<h3>Agent:</h3>
+								<ul>
+									<li>Agent's name: {{agencyContactPerson}}</li>
+									<li>Agent's email: {{agencyEmailPerson}}</li>
+									<li>Agent's phone: {{agencyPhonePerson}}</li>
+								</ul>
 								<h3>Apartment: </h3>
 								<ul>
 									<li>Rent amount: {{rentAmount}}€</li>
+									<li>Rental Address: {{rentalAddress}}</li>
                                     <li>Apartment: {{building}}</li>
                                     <li>Rent start date: {{rentStartDate}}</li>
                                     <li>Rent end date: {{rentEndDate}}</li>

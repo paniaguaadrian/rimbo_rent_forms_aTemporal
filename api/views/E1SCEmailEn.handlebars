@@ -380,8 +380,8 @@ a{
             	<tr>
             		<td>
             			<div class="text" style="padding: 0 3em; text-align: center;">
-							<h3>¡Hola equipo de Starcity!</h3>				
-            				<h3>Gracias por rellenar el formulario. <br/>Hemos recibido la información, el residente recibirá en breve un correo para registrar su tarjeta. </h3>
+							<h3>¡Hola equipo de {{agencyName}}!</h3>				
+            				<h3>Gracias por rellenar el formulario. <br/>Hemos recibido la información, el inquilino recibirá en breve un correo para registrar su tarjeta. </h3>
             			</div>
             		</td>
             	</tr>
@@ -394,7 +394,7 @@ a{
 		          <tr>
 		            <td class="bg_white email-section">
 		            	<div class="heading-section" style="text-align: center; padding: 0 30px;">
-		              	<h3>Recibirás una notificación cuando el residente se haya registrado correctamente.</h3>
+		              	<h3>Recibirás una notificación cuando el inquilino se haya registrado correctamente.</h3>
 
 		            	</div>
 		          </tr><!-- end: tr -->
@@ -403,11 +403,11 @@ a{
 					<tr>
 						<td>
 							<div class="text" style="padding: 0em 3em; text-align: left; color: black;">
-								<h3>Residente:</h3>
+								<h3>Inquilino:</h3>
 								<ul>
-                                    <li>Nombre completo del Residente: {{tenantsName}}</li>
-                                    <li>Correo electrónico del Residente: {{tenantsEmail}}</li>
-                                    <li>Número de teléfono del Residente:  {{tenantsPhone}}</li>
+                                    <li>Nombre completo del Inquilino: {{tenantsFirstName}} {{tenantsLastName}}</li>
+                                    <li>Correo electrónico del Inquilino: {{tenantsEmail}}</li>
+                                    <li>Número de teléfono del Inquilino:  {{tenantsPhone}}</li>
                                     <li>Dirección actual: {{tenantsAddress}}</li>
                                     <li>Código Postal Actual: {{tenantsZipCode}}</li>
                                     <li>Tipo de Documento: {{documentType}}</li>
@@ -419,6 +419,7 @@ a{
                                 <h3>Información de la propiedad:</h3>
                                 <ul>
                                     <li>Alquiler mensual: {{rentAmount}}</li>
+									<li>Dirección de la propiedad: {{rentalAddress}}</li>
                                     <li>Piso: {{building}}</li>
                                     <li>Fecha de entrada: {{rentStartDate}}</li>
                                     <li>Fecha de salida: {{rentEndDate}}</li>
@@ -440,36 +441,6 @@ a{
 						</td>
 					</tr>
 				</table>
-
-				{{!-- <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px; color: #6aa3a1;">
-		              	<h2>It sounds great, doesn't it?</h2>
-						  <h4>Well - it’s true and you’re now part of the enso-Rimbo family!</h4>
-		              	
-		            	</div>
-		          </tr><!-- end: tr -->
-					
-			</table> --}}
-					
-			{{!-- <table>
-					<tr>
-						<td>
-							<div class="text" style="padding: 1em 3em; text-align: left;">
-								
-								<h3>Tan pronto como se realice la evaluación, nos pondremos en contacto contigo para completar el proceso de alquiler de esta propiedad.</h3>
-
-								<h3>Por favor, comprueba tu correo electrónico en las próximas horas.</h3>
-
-								<h3>¡A partir de ahora, gestionar este alquiler será más seguro y rápido que nunca!</h3>
-
-
-								
-							</div>
-						</td>
-					</tr>
-			</table> --}}
 
 			<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 		          <tr>

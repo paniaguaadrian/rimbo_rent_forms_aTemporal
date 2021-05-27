@@ -404,7 +404,7 @@ a{
 							<div class="text" style="padding: 0em 3em; text-align: left; color: black;">
 								<h3>Inquilino:</h3>
 								<ul>
-                                    <li>Nombre completo del inquilino: {{tenantsName}}</li>
+                                    <li>Nombre completo del inquilino: {{tenantsFirstName}} {{tenantsLastName}}</li>
                                     <li>Correo electrónico del inquilino: {{tenantsEmail}}</li>
 									<li>Número de teléfono del inquilino: {{tenantsPhone}}</li>
 									<li>Dirección actual: {{tenantsAddress}}</li>
@@ -417,11 +417,17 @@ a{
 									<li>Documento identidad (Frontal): {{documentImageFront}}</li>
 									<li>Documento identidad (Atrás): {{documentImageBack}}</li>
                                 </ul>
+								<h3>Información del Agente:</h3>
+								<ul>
+									<li>Nombre del agente: {{agencyContactPerson}}</li>
+									<li>Email del agente: {{agencyEmailPerson}}</li>
+									<li>Teléfono del agente: {{agencyPhonePerson}}</li>
+								</ul>
 								<h3>Información del apartamento</h3>
 								<ul>
 									<li>Alquiler mensual: {{rentAmount}}€</li>
+									<li>Dirección: {{rentalAddress}}</li>
                                     <li>Piso: {{building}}</li>
-
                                     <li>Fecha de entrada: {{rentStartDate}}</li>
                                     <li>Fecha de salida: {{rentEndDate}}</li>
 								</ul>
@@ -430,18 +436,6 @@ a{
 						</td>
 					</tr>
 				</table>
-
-				{{!-- <table>
-					<tr>
-						<td>
-							<div class="text" style="padding: 1em 3em; text-align: left;">
-								
-								<h3>Nos pondremos en contacto con el/la inquilino/a y llevaremos a cabo la evaluación para garantizar su solvencia. Una vez completada la evaluación, te la enviaremos.</h3>
-								
-							</div>
-						</td>
-					</tr>
-				</table> --}}
 
 				<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 		          <tr>
@@ -452,60 +446,6 @@ a{
 		          </tr><!-- end: tr -->
 					
 			</table>
-
-				{{!-- <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0 30px; color: #6aa3a1;">
-		              	<h2>It sounds great, doesn't it?</h2>
-						  <h4>Well - it’s true and you’re now part of the StarCity-Rimbo family!</h4>
-		              	
-		            	</div>
-		          </tr><!-- end: tr -->
-					
-			</table> --}}
-					
-			{{!-- <table>
-					<tr>
-						<td>
-							<div class="text" style="padding: 1em 3em; text-align: left;">
-								
-								<h3>Tan pronto como se realice la evaluación, nos pondremos en contacto contigo para completar el proceso de alquiler de esta propiedad.</h3>
-
-								<h3>Por favor, comprueba tu correo electrónico en las próximas horas.</h3>
-
-								<h3>¡A partir de ahora, gestionar este alquiler será más seguro y rápido que nunca!</h3>
-
-
-								
-							</div>
-						</td>
-					</tr>
-			</table> --}}
-
-			{{!-- <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: center; padding: 0px 30px; color: #6aa3a1;">
-		              	<h3>¡Saludos cordiales de nuestro equipo!</h3>
-						  
-		          </tr><!-- end: tr -->
-					
-			</table>
-			<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-		          <tr>
-		            <td class="bg_white email-section">
-		            	<div class="heading-section" style="text-align: left; padding: 0px 30px; color: #6aa3a1;">
-		              	
-						<h3>Equipo de Soporte,</h3>
-		              	<h4>Móvil -  WhatsApp: +34 623 063 769<br/>
-      					E-Mail: info@rimbo.com<br/>
-      					Web: <a href="http://www.rimbo.rent">rimbo.rent</a>
-      					</h4>
-		            	</div>
-		          </tr><!-- end: tr -->
-					
-			</table> --}}
 
 			<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 		          <tr>
